@@ -64,147 +64,16 @@
   background-color: #ddd;
 }
 
-/* Mobile Styles */
-@media (max-width: 768px) {
-  .pricing-table {
-    border-radius: 0;
-    box-shadow: none;
-    border: 1px solid #ddd;
-  }
-
-  /* Hide table headers on mobile */
-  .pricing-table thead {
-    display: none;
-  }
-
-  /* Make table body display as block */
-  .pricing-table tbody {
-    display: block;
-  }
-
-  /* Transform rows into cards */
-  .pricing-table tbody tr {
-    display: block;
-    margin-bottom: 20px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 16px;
-    background: #fff;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  }
-
-  .pricing-table tbody tr:nth-child(even) {
-    background: #fff;
-  }
-
-  /* Transform cells into block elements */
-  .pricing-table tbody tr td {
-    display: block;
-    text-align: left;
-    padding: 8px 0;
-    border: none;
-    background: transparent !important;
-    font-weight: normal;
-  }
-
-  .pricing-table tbody tr td:first-child {
-    background: transparent !important;
-    font-weight: bold;
-    font-size: 18px;
-    margin-bottom: 12px;
-    padding-bottom: 12px;
-    border-bottom: 2px solid #eee;
-    color: #333;
-  }
-
-  /* Add labels before each cell content */
-  .pricing-table tbody tr td:nth-child(2):before {
-    content: "Basic: ";
-    font-weight: bold;
-    color: #6f6ab8;
-  }
-
-  .pricing-table tbody tr td:nth-child(3):before {
-    content: "Standard: ";
-    font-weight: bold;
-    color: #554e9e;
-  }
-
-  .pricing-table tbody tr td:nth-child(4):before {
-    content: "Premium: ";
-    font-weight: bold;
-    color: #3d357c;
-  }
-
-  .pricing-table tbody tr td:nth-child(5):before {
-    content: "Enterprise: ";
-    font-weight: bold;
-    color: #29214d;
-  }
-
-  /* Style the pricing row differently */
-  .pricing-table tbody tr:nth-child(5) td {
-    font-weight: bold;
-    font-size: 16px;
-  }
-
-  .pricing-table tbody tr:nth-child(5) td:not(:first-child) {
-    background: linear-gradient(135deg, #f5f5f5, #e8e8e8);
-    padding: 12px;
-    border-radius: 6px;
-    margin: 4px 0;
-  }
-
-  .start-btn {
-    display: block;
-    width: 100%;
-    text-align: center;
-    padding: 12px 20px;
-    margin-top: 8px;
-    font-size: 16px;
-  }
+.table-wrapper {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
 }
 
-/* Small mobile devices */
-@media (max-width: 480px) {
-  .pricing-table {
-    margin: 10px;
-  }
-
-  .pricing-table tbody tr {
-    margin-bottom: 16px;
-    padding: 12px;
-  }
-
-  .pricing-table tbody tr td:first-child {
-    font-size: 16px;
-  }
-
-  .pricing-table tbody tr td {
-    font-size: 14px;
-    padding: 6px 0;
-  }
-
-  .start-btn {
-    padding: 10px 16px;
-    font-size: 14px;
-  }
-}
-
-/* Tablet styles */
-@media (min-width: 769px) and (max-width: 1024px) {
-  .pricing-table th,
-  .pricing-table td {
-    padding: 12px 8px;
-    font-size: 14px;
-  }
-
-  .pricing-table thead th {
-    font-size: 16px;
-  }
-
-  .start-btn {
-    padding: 6px 16px;
-    font-size: 14px;
-  }
+.pricing-table {
+  min-width: 900px; 
+  width: max-content;
 }

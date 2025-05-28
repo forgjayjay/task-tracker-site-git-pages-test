@@ -235,6 +235,7 @@ img {
     
     .main-content {
         font-size: 18px;
+        text-align: left;
     }
     
     .main-header {
@@ -269,14 +270,13 @@ img {
     .main-container {
         flex-direction: row;
         justify-content: space-between;
+        text-align: center;
         align-items: center;
     }
     
     .main-content {
         width: 540px;
         flex-shrink: 0;
-        display: flex;
-        justify-items: center;
     }
     
     .main-header {

@@ -6,6 +6,8 @@ body {
     height: 100%;
     margin: 0;
     font-family: 'Manrope', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 html {
@@ -25,13 +27,14 @@ img {
     min-height: 100vh;
 }
 
-/* Header Styles */
+/* Mobile First Header Styles */
 .header {
     display: flex;
     align-items: center;
-    min-height: 73px;
+    min-height: 60px;
     border-bottom: 1px solid #e5e9f2;
-    padding: 0 20px;
+    padding: 0 16px;
+    position: relative;
 }
 
 .header-container {
@@ -40,62 +43,78 @@ img {
     margin: 0 auto;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 16px;
 }
 
 .logo {
     flex-shrink: 0;
+    z-index: 10;
 }
 
 .logo img {
-    height: 40px;
+    height: 32px;
     width: auto;
 }
 
+/* Mobile Navigation */
 .nav {
     font-weight: bold;
     font-size: 14px;
-    line-height: 1;
+    line-height: 1.2;
     color: #18191F;
     display: flex;
-    flex-wrap: wrap;
-    gap: 16px;
-    order: 3;
+    flex-direction: column;
+    gap: 12px;
     width: 100%;
+    order: 3;
+    padding: 16px 0;
+    border-top: 1px solid #e5e9f2;
+    margin-top: 16px;
 }
 
 .nav-link {
     color: #18191F;
     text-decoration: none;
-    padding: 8px 0;
+    padding: 12px 0;
+    border-bottom: 1px solid #f5f5f5;
+    transition: color 0.2s ease;
 }
 
-.nav-link:hover {
+.nav-link:last-child {
+    border-bottom: none;
+}
+
+.nav-link:hover,
+.nav-link:active {
     color: #8C30F5;
 }
 
+/* Mobile App Store Links */
 .appstore {
-    margin-left: auto;
     display: flex;
-    gap: 12px;
+    gap: 8px;
     order: 2;
+    flex-shrink: 0;
 }
 
 .appstore-item {
     display: block;
+    transition: opacity 0.2s ease;
 }
 
-.appstore-item:hover {
-    opacity: 0.5;
+.appstore-item:hover,
+.appstore-item:active {
+    opacity: 0.7;
 }
 
 .appstore-item img {
-    height: 32px;
+    height: 28px;
     width: auto;
 }
 
-/* Main Content Styles */
+/* Mobile Main Content Styles */
 .main {
     flex: 1;
 }
@@ -107,8 +126,8 @@ img {
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    padding: 40px 20px;
-    gap: 40px;
+    padding: 24px 16px;
+    gap: 32px;
 }
 
 .main-content {
@@ -122,7 +141,7 @@ img {
     margin-top: 0;
     margin-bottom: 16px;
     font-weight: 800;
-    font-size: 36px;
+    font-size: 28px;
     line-height: 1.2;
     color: #18191F;
 }
@@ -132,46 +151,54 @@ img {
 }
 
 .main-text p {
-    margin-bottom: 15px;
+    margin-bottom: 16px;
     font-size: 16px;
-    line-height: 1.6;
+    line-height: 1.5;
 }
 
+/* Mobile Button */
 .button {
     display: inline-block;
-    padding: 16px 32px;
+    padding: 14px 24px;
     background: #8C30F5;
     border-radius: 8px;
     font-weight: bold;
-    font-size: 18px;
+    font-size: 16px;
     color: #FFFFFF;
     text-decoration: none;
-    transition: opacity 0.3s ease;
+    transition: all 0.2s ease;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
 }
 
-.button:hover {
+.button:hover,
+.button:active {
     opacity: 0.8;
+    transform: translateY(-1px);
 }
 
 .main-img {
     width: 100%;
     display: flex;
     justify-content: center;
+    margin-top: 16px;
 }
 
 .main-img img {
     max-width: 100%;
     height: auto;
+    border-radius: 8px;
 }
 
-/* Footer Styles */
+/* Mobile Footer Styles */
 .footer {
     display: flex;
     align-items: center;
-    min-height: 72px;
+    min-height: 60px;
     background: #0B0D17;
     color: #D9D8E1;
-    padding: 20px;
+    padding: 16px;
+    margin-top: auto;
 }
 
 .footer-container {
@@ -180,12 +207,13 @@ img {
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 12px;
     text-align: center;
 }
 
 .footer-copyright {
     font-size: 14px;
+    line-height: 1.4;
 }
 
 .footer-socials {
@@ -194,114 +222,192 @@ img {
     gap: 16px;
 }
 
-.footer-socials-item:hover {
-    opacity: 0.5;
+.footer-socials-item {
+    transition: opacity 0.2s ease;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.footer-socials-item:hover,
+.footer-socials-item:active {
+    opacity: 0.7;
 }
 
 .footer-socials-item img {
-    height: 24px;
+    height: 20px;
     width: auto;
 }
 
-/* Tablet Styles */
+/* Small Mobile Devices (320px and up) */
+@media (max-width: 375px) {
+    .header {
+        padding: 0 12px;
+        min-height: 56px;
+    }
+    
+    .logo img {
+        height: 28px;
+    }
+    
+    .appstore-item img {
+        height: 24px;
+    }
+    
+    .main-container {
+        padding: 20px 12px;
+        gap: 24px;
+    }
+    
+    .main-header {
+        font-size: 24px;
+    }
+    
+    .main-text p {
+        font-size: 15px;
+    }
+    
+    .button {
+        padding: 12px 20px;
+        font-size: 15px;
+    }
+    
+    .footer {
+        padding: 12px;
+    }
+}
+
+/* Tablet Styles (768px and up) */
 @media (min-width: 768px) {
     .header {
         padding: 0 40px;
+        min-height: 73px;
     }
-    
+   
     .header-container {
         flex-wrap: nowrap;
         gap: 40px;
     }
     
+    .logo img {
+        height: 40px;
+    }
+   
     .nav {
         order: 2;
         width: auto;
         gap: 32px;
+        flex-direction: row;
+        border-top: none;
+        margin-top: 0;
+        padding: 0;
     }
     
+    .nav-link {
+        padding: 8px 0;
+        border-bottom: none;
+    }
+   
     .appstore {
         order: 3;
+        gap: 12px;
     }
-    
+   
     .appstore-item img {
         height: 40px;
     }
-    
+   
     .main-container {
         padding: 60px 40px;
         gap: 60px;
     }
-    
+   
     .main-content {
         font-size: 18px;
         text-align: left;
     }
-    
+   
     .main-header {
         font-size: 48px;
         line-height: 1.3;
     }
-    
+   
     .main-text p {
         font-size: 18px;
         line-height: 1.7;
     }
-    
+   
     .button {
         font-size: 20px;
         padding: 20px 35px;
     }
-    
+   
+    .footer {
+        min-height: 72px;
+        padding: 20px 40px;
+    }
+   
     .footer-container {
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
         text-align: left;
+        gap: 16px;
     }
-    
+   
     .footer-socials {
         justify-content: flex-end;
     }
+    
+    .footer-socials-item img {
+        height: 24px;
+    }
 }
 
-/* Desktop Styles */
+/* Desktop Styles (1024px and up) */
 @media (min-width: 1024px) {
     .main-container {
         flex-direction: row;
-        justify-content: space-between;
-        text-align: center;
         align-items: center;
     }
     
     .main-content {
-        width: 540px;
-        flex-shrink: 0;
-    }
-    
-    .main-header {
-        font-size: 72px;
-        line-height: 1.36;
+        flex: 1;
+        max-width: 50%;
     }
     
     .main-img {
-        width: auto;
         flex: 1;
-        justify-content: flex-end;
+        max-width: 50%;
+        margin-top: 0;
+    }
+    
+    .main-header {
+        font-size: 56px;
+    }
+    
+    .main-text p {
+        font-size: 20px;
+        line-height: 1.8;
+    }
+    
+    .button {
+        font-size: 22px;
+        padding: 22px 40px;
     }
 }
 
-/* Large Desktop Styles */
-@media (min-width: 1200px) {
-    .header {
-        padding: 0;
+/* Touch-specific improvements */
+@media (hover: none) and (pointer: coarse) {
+    .nav-link,
+    .button,
+    .appstore-item,
+    .footer-socials-item {
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
     
-    .main-container {
-        padding: 60px 0;
-    }
-    
-    .footer {
-        padding: 0 20px;
+    .nav-link {
+        justify-content: flex-start;
     }
 }

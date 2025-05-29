@@ -58,6 +58,7 @@
   margin-top: 5px;
   border: 2px double #ccc;
   transition: background-color 0.3s ease;
+  text-decoration: none;
 }
 
 .start-btn:hover {

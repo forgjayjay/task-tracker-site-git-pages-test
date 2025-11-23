@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Science+Gothic:wght@100..900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Playwrite+US+Trad+Guides&display=swap" rel="stylesheet">
+        <style>
+            body{
+                margin: 40px auto;
+                margin-bottom: 0;
+                max-width: 1050px;
+                text-align: justify;
+                font-size: 16px;
+                padding: 0 10px;
+                display: flex;
+                flex-direction: column;
+                background: linear-gradient(180deg, hsla(0, 0%, 0%, 0.1) 0%, hsla(0, 0%, 0%, 0.2) 100%);
+            }
+            section{
+                padding: 2rem;
+            }
+            h2, h2{
+                line-height: 1.2;
+                margin-left: 1rem;
+            }
+            a{
+                text-decoration: none;
+                transition: 0.5s;
+                position: relative;
+                color: black;
+                align-items: center;
+            }
+            a:hover{
+                color: rgb(219, 69, 15);
+                transition: 0.5s;
+            }
+            a::before{
+                content: "";
+                background-color: blue;
+                display: inline-block;
+                transform: translateX(-80%) translateY(-50%);
+                width: 8px;
+                height: 8px;
+                transition: 0.5s ease;
+            }
+            a:hover::before{
+                transition: 0.5s ease;
+                transform: rotate(45deg) translateX(-100%);
+                background-color: rgb(219, 69, 15);
+            }
+            .science-gothic {
+                font-family: "Science Gothic", sans-serif;
+                font-optical-sizing: auto;
+                font-weight: 400;
+                font-style: normal;
+                font-variation-settings:
+                    "slnt" -10,
+                    "wdth" 100,
+                    "CTRS" 0;
+            }
+            .playwrite-us-trad-guides-regular {
+                font-family: "Playwrite US Trad Guides", cursive;
+                font-weight: 400;
+                font-style: normal;
+            }
+            
+            .roboto-condensed{
+                font-family: "Roboto Condensed", sans-serif;
+                font-optical-sizing: auto;
+                font-weight: 400;
+                font-style: normal;
+            }
+
+            .footer {
+                display: flex;
+                align-items: center;
+                min-height: 60px;
+                color: black;
+                padding: 16px;
+                margin-top: auto;
+                margin-bottom: 0;
+            }
+
+            .footer-container {
+                width: 100%;
+                max-width: 1110px;
+                margin: 0 auto;
+                display: flex;
+                flex-direction: column;
+                gap: 12px;
+                text-align: center;
+            }
+
+            .footer-socials {
+                display: flex;
+                justify-content: center;
+                gap: 2rem;
+                transition: 0.5s;
+            }
+
+            .footer-socials-item {
+                transition: opacity 0.2s ease;
+                -webkit-tap-highlight-color: transparent;
+                transition: 0.5s;
+            }
+
+            .footer-socials-item:hover,
+            .footer-socials-item:active {
+                opacity: 0.7;
+                transition: 0.5s;
+            }
+
+            .footer-socials-item img {
+                height: 30px;
+                width: auto;
+                background-color: black;
+                display: block;
+                border-radius: 20px;
+                transition: 0.5s;
+            }
+
+            .footer-socials-item::before {
+                content: "";
+                display: none;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Google Fonts</h1>
+        <section>
+            <h2><a href="https://fonts.google.com/specimen/Science+Gothic">Science Gothic</a></h2>
+            <p class="science-gothic">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut hendrerit a metus non gravida. Aliquam vehicula luctus nisi, et scelerisque risus facilisis eget. Quisque pellentesque sagittis erat vel dapibus. Sed tincidunt mauris elementum convallis pharetra. Suspendisse at nisl ligula. Quisque sit amet luctus eros. Praesent vestibulum quam nunc, eget dapibus libero vehicula eget. Vivamus sagittis massa non nulla tincidunt, et fermentum nulla dapibus. Cras interdum nunc ac tellus faucibus vulputate. Donec viverra elementum turpis sed tempor. Nulla ipsum nulla, luctus ut tellus vitae, facilisis faucibus sapien. Cras posuere suscipit turpis, vel blandit lacus feugiat vitae. Pellentesque eget quam dictum, tincidunt dui eu, vulputate leo. 
+            </p>
+        </section>
+        <section>
+            <h2><a href="https://fonts.google.com/specimen/Playwrite+US+Trad+Guides">Playwrite USA Traditional Guides</a></h2>
+            <p class="playwrite-us-trad-guides-regular">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut hendrerit a metus non gravida. Aliquam vehicula luctus nisi, et scelerisque risus facilisis eget. Quisque pellentesque sagittis erat vel dapibus. Sed tincidunt mauris elementum convallis pharetra. Suspendisse at nisl ligula. Quisque sit amet luctus eros. Praesent vestibulum quam nunc, eget dapibus libero vehicula eget. Vivamus sagittis massa non nulla tincidunt, et fermentum nulla dapibus. Cras interdum nunc ac tellus faucibus vulputate. Donec viverra elementum turpis sed tempor. Nulla ipsum nulla, luctus ut tellus vitae, facilisis faucibus sapien. Cras posuere suscipit turpis, vel blandit lacus feugiat vitae. Pellentesque eget quam dictum, tincidunt dui eu, vulputate leo. 
+            </p>
+        </section>
+        <section>
+            <h2><a href="https://fonts.google.com/specimen/Roboto+Condensed">Roboto Condensed</a></h2>
+            <p class="roboto-condensed">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut hendrerit a metus non gravida. Aliquam vehicula luctus nisi, et scelerisque risus facilisis eget. Quisque pellentesque sagittis erat vel dapibus. Sed tincidunt mauris elementum convallis pharetra. Suspendisse at nisl ligula. Quisque sit amet luctus eros. Praesent vestibulum quam nunc, eget dapibus libero vehicula eget. Vivamus sagittis massa non nulla tincidunt, et fermentum nulla dapibus. Cras interdum nunc ac tellus faucibus vulputate. Donec viverra elementum turpis sed tempor. Nulla ipsum nulla, luctus ut tellus vitae, facilisis faucibus sapien. Cras posuere suscipit turpis, vel blandit lacus feugiat vitae. Pellentesque eget quam dictum, tincidunt dui eu, vulputate leo. 
+            </p>
+        </section>
+       <footer class=footer>
+            <div class=footer-container>
+                <div class=footer-socials>
+                    <a href=# class=footer-socials-item><img alt=""src=img/Instagram.svg></a>
+                    <a href=# class=footer-socials-item><img alt=""src=img/Dribbble.svg></a>
+                    <a href=# class=footer-socials-item><img alt=""src=img/Twitter.svg></a>
+                    <a href=# class=footer-socials-item><img alt=""src=img/Youtube.svg></a>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>

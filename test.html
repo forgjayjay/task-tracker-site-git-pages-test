@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corelly Gallery - Simplified</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #1a1a1a;
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background-color: #2a2a2a;
+            padding: 20px 0;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .coral-image {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(45deg, #ff6b6b, #ff8a80);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-text {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #ff6b6b;
+        }
+
+        .nav {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav a {
+            color: #e0e0e0;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav a:hover {
+            color: #ff6b6b;
+        }
+
+        /* Gallery Status */
+        .gallery-status {
+            background: linear-gradient(135deg, #2a2a2a, #1a1a1a);
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .status-indicator {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 15px 25px;
+            border-radius: 25px;
+            margin-bottom: 15px;
+        }
+
+        .status-dot {
+            width: 10px;
+            height: 10px;
+            background-color: #00ff88;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .status-text {
+            color: white;
+            font-weight: 600;
+        }
+
+        .opening-hours {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #ff6b6b;
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 60px 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #ff6b6b;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        /* Exhibition Cards */
+        .exhibition-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .exhibition-card {
+            background-color: #f5f5f5;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .exhibition-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .exhibition-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(45deg, #ddd, #bbb);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            font-weight: bold;
+        }
+
+        .exhibition-content {
+            padding: 25px;
+            color: #333;
+        }
+
+        .exhibition-meta {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        .contact-icon {
+            width: 12px;
+            height: 12px;
+            background-color: #ff6b6b;
+            border-radius: 3px;
+        }
+
+        .exhibition-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #2a2a2a;
+            margin-bottom: 10px;
+        }
+
+        .exhibition-description {
+            color: #555;
+            font-size: 0.95rem;
+        }
+
+        /* Recent Exhibits */
+        .recent-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .recent-card {
+            background-color: #f5f5f5;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .recent-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .recent-image {
+            width: 100%;
+            height: 150px;
+            background: linear-gradient(135deg, #ddd, #bbb);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            font-weight: bold;
+        }
+
+        .recent-content {
+            padding: 20px;
+            color: #333;
+        }
+
+        .recent-title {
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: #2a2a2a;
+        }
+
+        .recent-year {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #2a2a2a;
+            border-top: 3px solid #ff6b6b;
+            padding: 40px 0 20px;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+
+        .footer-section h3 {
+            color: #ff6b6b;
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #e0e0e0;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .social-link {
+            background-color: #3a3a3a;
+            color: #e0e0e0;
+            padding: 10px 15px;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background-color: #ff6b6b;
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #4a4a4a;
+            color: #888;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .nav {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 20px;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .exhibition-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .recent-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-section">
+                    <div class="coral-image"></div>
+                    <h1 class="logo-text">Corelly</h1>
+                </div>
+                <nav class="nav">
+                    <a href="#">Exhibits</a>
+                    <a href="#">Tours</a>
+                    <a href="#">Gallery</a>
+                    <a href="#">Contacts</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="gallery-status">
+        <div class="container">
+            <div class="status-indicator">
+                <div class="status-dot"></div>
+                <span class="status-text">The gallery is open today</span>
+            </div>
+            <p class="opening-hours">9 AM - 8 PM</p>
+        </div>
+    </section>
+
+    <main class="main-content">
+        <div class="container">
+            <section>
+                <h2 class="section-title">Exhibitions and events</h2>
+                <div class="exhibition-grid">
+                    <div class="exhibition-card">
+                        <div class="exhibition-image">Exhibition Image</div>
+                        <div class="exhibition-content">
+                            <div class="exhibition-meta">
+                                <div class="contact-icon"></div>
+                                <span>Current Exhibition</span>
+                            </div>
+                            <h3 class="exhibition-title">Contemporary Visions</h3>
+                            <p class="exhibition-description">
+                                Explore modern artistic expressions through diverse mediums and perspectives.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="exhibition-card">
+                        <div class="exhibition-image">Event Image</div>
+                        <div class="exhibition-content">
+                            <div class="exhibition-meta">
+                                <div class="contact-icon"></div>
+                                <span>Upcoming Event</span>
+                            </div>
+                            <h3 class="exhibition-title">Artist Talk Series</h3>
+                            <p class="exhibition-description">
+                                Join us for intimate conversations with featured artists.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="exhibition-card">
+                        <div class="exhibition-image">Special Image</div>
+                        <div class="exhibition-content">
+                            <div class="exhibition-meta">
+                                <div class="contact-icon"></div>
+                                <span>Special Exhibition</span>
+                            </div>
+                            <h3 class="exhibition-title">Digital Horizons</h3>
+                            <p class="exhibition-description">
+                                Experience the intersection of technology and traditional art forms.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="recent-exhibits">
+                <h2 class="section-title">Recent exhibits</h2>
+                <div class="recent-grid">
+                    <div class="recent-card">
+                        <div class="recent-image">Sculpture 1</div>
+                        <div class="recent-content">
+                            <h3 class="recent-title">Sculptural Forms</h3>
+                            <p class="recent-year">2024</p>
+                        </div>
+                    </div>
+                    <div class="recent-card">
+                        <div class="recent-image">Sculpture 2</div>
+                        <div class="recent-content">
+                            <h3 class="recent-title">Abstract Expressions</h3>
+                            <p class="recent-year">2024</p>
+                        </div>
+                    </div>
+                    <div class="recent-card">
+                        <div class="recent-image">Sculpture 3</div>
+                        <div class="recent-content">
+                            <h3 class="recent-title">Modern Interpretations</h3>
+                            <p class="recent-year">2024</p>
+                        </div>
+                    </div>
+                    <div class="recent-card">
+                        <div class="recent-image">Sculpture 4</div>
+                        <div class="recent-content">
+                            <h3 class="recent-title">Contemporary Works</h3>
+                            <p class="recent-year">2023</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <div class="contact-icon"></div>
+                            <span>email</span>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon"></div>
+                            <span>phone</span>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon"></div>
+                            <span>open times</span>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon"></div>
+                            <span>address</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Follow us</h3>
+                    <div class="social-links">
+                        <a href="#" class="social-link">#</a>
+                        <a href="#" class="social-link">#</a>
+                        <a href="#" class="social-link">#</a>
+                        <a href="#" class="social-link">#</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 Corelly Gallery</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
